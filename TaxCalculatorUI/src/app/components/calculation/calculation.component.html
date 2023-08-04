@@ -1,0 +1,47 @@
+<div class="tax-container">
+  <h2>Lets calculate your UK taxes</h2>
+  <div>
+    <div class="input">
+      <input #incomeInput="ngModel" required min="1" type="number" [(ngModel)]="income">
+      <button (click)="calculate()">Calculate!</button>
+    </div>
+    <div *ngIf="incomeInput.invalid && (incomeInput.touched || incomeInput.dirty)" class="validation">
+      <div *ngIf="incomeInput.errors?.['required']">
+        Income is required.
+      </div>
+      <div *ngIf="incomeInput.errors?.['min']">
+        Income must be greater than 0.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="result" *ngIf="calculationResult">
+    <table>
+      <tr>
+        <td>Gross Annual Salary:</td>
+        <td>£ {{calculationResult.grossAnnualSalary}}</td>
+      </tr>
+      <tr>
+        <td>Gross Monthly Salary:</td>
+        <td>£ {{calculationResult.grossMonthlySalary}}</td>
+      </tr>
+      <tr>
+        <td>Net Annual Salary:</td>
+        <td>£ {{calculationResult.netAnnualSalary}}</td>
+      </tr>
+      <tr>
+        <td>Net Monthly Salary:</td>
+        <td>£ {{calculationResult.netMonthlySalary}}</td>
+      </tr>
+      <tr>
+        <td>Annual Tax Paid:</td>
+        <td>£ {{calculationResult.annualTaxPaid}}</td>
+      </tr>
+      <tr>
+        <td>Monthly Tax Paid:</td>
+        <td>£ {{calculationResult.monthlyTaxPaid}}</td>
+      </tr>
+    </table>
+  </div>
+</div>

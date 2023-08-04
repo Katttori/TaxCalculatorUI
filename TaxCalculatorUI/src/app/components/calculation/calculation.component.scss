@@ -1,0 +1,25 @@
+.tax-container {
+  width: fit-content;
+  margin: auto;
+}
+
+.input {
+  display: flex;
+  justify-content: space-around;
+}
+
+.result {
+  margin-top: 20px;
+  margin-left: 20px
+}
+
+.validation {
+  margin-left: 15px;
+  color: red;
+  font-size: 15px;
+}
+
+.ng-invalid.ng-touched {
+  border: 2px solid red;
+  border-spacing: 2px;
+}

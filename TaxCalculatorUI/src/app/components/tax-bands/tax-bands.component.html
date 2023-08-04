@@ -1,0 +1,28 @@
+<div class="content">
+  <h2>Tax bands information</h2>
+
+  <div *ngIf="taxBands">
+    <table >
+      <tr>
+        <th>Tax band Name</th>
+        <th>Annual Salary Range (£) </th>
+        <th>Tax Rate (%) </th>
+      </tr>
+
+      <tr *ngFor="let taxBand of taxBands">
+        <td>{{taxBand.name}}</td>
+        <td>
+          <span *ngIf="taxBand.upperLimit; else unlimited">
+            {{taxBand.lowerLimit}} - {{taxBand.upperLimit}}
+          </span>
+          <ng-template #unlimited>
+            <span>{{taxBand.lowerLimit}} +</span>
+          </ng-template>
+        </td>
+        <td>{{taxBand.taxRate}}</td>
+      </tr>
+    </table>
+  </div>
+
+
+</div>
